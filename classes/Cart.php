@@ -3661,9 +3661,9 @@ class CartCore extends ObjectModel
         }
 
         if (method_exists($module, 'getPackageShippingCost')) {
-            $shipping_cost = $module->getPackageShippingCost($this, $shipping_cost, $products);
+            $shipping_cost = $module->getPackageShippingCost($this, $shipping_cost, $products,$carrier);
         } else {
-            $shipping_cost = $module->getOrderShippingCost($this, $shipping_cost);
+            $shipping_cost = $module->getOrderShippingCost($this, $shipping_cost,$carrier);
         }
 
         return $shipping_cost;
